@@ -1,4 +1,5 @@
 log/*
+tmp/*.zip
 tmp/**/*
 db/*.sqlite3
 db/schema.rb
