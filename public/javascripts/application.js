@@ -1,2 +1,11 @@
-// Place your application-specific JavaScript functions and classes here
-// This file is automatically included by javascript_include_tag :defaults
+$(document).ready(function() {
+	$.getJSON('/', function(data){
+    $('input#search_field').autocomplete(data, {
+		  formatItem: function(item) {
+		    return item.text;
+		  }
+		}).result(function(event, item) {
+		  location.href = item.url;
+		});
+  });
+})
