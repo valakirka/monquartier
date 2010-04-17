@@ -15,17 +15,20 @@ feature "Import geography" do
   end
   
   scenario "Get population & normalized average age for each district" do
-    # pending "Commented to avoid HTTP queries during tests"
-    # city = create_city(:name => "Madrid", :ine_id => "28079")
-    # district1 = create_district(:city => city, :ine_id => "2807901")
-    # district2 = create_district(:city => city, :ine_id => "2807902")
-    # district3 = create_district(:city => city, :ine_id => "2807903")
+    pending "Commented to avoid HTTP queries during tests"
+    # city1 = create_city(:name => "Madrid", :ine_id => "28079")
+    # district1 = create_district(:city => city1, :ine_id => "2807901")
+    # district2 = create_district(:city => city1, :ine_id => "2807902")
+    # district3 = create_district(:city => city1, :ine_id => "2807903")
+    # city2 = create_city(:name => "Barcelona", :ine_id => "08019")
+    # district4 = create_district(:city => city2, :ine_id => "0801901")
     # 
     # Importer.get_populations
     # 
     # district1.reload
     # district2.reload
     # district3.reload
+    # district4.reload
     # 
     # district1.population.should == 124_980
     # district2.population.should == 133_022
@@ -34,6 +37,7 @@ feature "Import geography" do
     # district1.age.should == 4368
     # district2.age.should == 4158
     # district3.age.should == 4308
+    # district4.age.should == 4434
     # 
     # district1.age_points.should == 500
     # district2.age_points.should == 0

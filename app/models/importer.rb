@@ -43,8 +43,8 @@ class Importer
         district.update_attributes!(:population => population,
                                     :age => age * 100)
       end
-      District.normalize!
     end
+    District.normalize!
   end
   
   def self.cities
