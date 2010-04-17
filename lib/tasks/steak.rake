@@ -1,3 +1,4 @@
+require 'spec/rake/spectask'
 load File.dirname(__FILE__) + '/rspec.rake'
 
 namespace :spec do

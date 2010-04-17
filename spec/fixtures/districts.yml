@@ -1,0 +1,13 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  city_id: 1
+  ine_id: MyString
+  name: MyString
+  nicename: MyString
+
+two:
+  city_id: 1
+  ine_id: MyString
+  name: MyString
+  nicename: MyString
