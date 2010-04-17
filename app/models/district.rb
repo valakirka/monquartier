@@ -2,16 +2,29 @@ class District < ActiveRecord::Base
   belongs_to :city
   
   def self.normalize!
-    City.all(:include => :districts).each do |city|
-      max_age = city.districts.maximum(:age)
-      min_age = city.districts.minimum(:age)
+    all.map(&:city).uniq.each do |city|
       city.districts.each do |district|
-        age_points = if city.districts.one?
-          250
-        else
-          district.update_attributes!(:age_points => ((district.age - min_age) * (5.0 / (max_age - min_age)) * 100).to_i)
+        points = returning({}) do |h|
+          NORMALIZED.each do |attribute|
+            h["#{attribute}_points"] = if city.districts.one?
+              250
+            else
+              ((district[attribute] - ranges[attribute].begin) * (5.0 / (ranges[attribute].end - ranges[attribute].begin)) * 100).round
+            end
+          end
         end
+        district.update_attributes!(points)
       end      
+    end
+  end
+  
+  NORMALIZED = [:age, :culture_and_sport]
+  
+  def self.ranges
+    returning({}) do |h|
+      NORMALIZED.each do |attribute|
+        h[attribute] = (scoped({}).minimum(attribute)..scoped({}).maximum(attribute))
+      end  
     end
   end
   

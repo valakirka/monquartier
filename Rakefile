@@ -13,4 +13,5 @@ task :import => :environment do
   Importer.cities.each do |name, data|
     Importer.import_city(name)
   end
+  Importer.get_data
 end

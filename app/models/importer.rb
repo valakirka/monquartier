@@ -10,41 +10,34 @@ class Importer
     end
   end
   
-  def self.get_populations
+  def self.get_data
     session = IneSession.new
     City.all(:include => :districts).each do |city|
-      session.post("http://www.ine.es/censo/es/seleccion_infra_elec_sec_dist.jsp",
-                          :fType => 5,
-                          :municipios => city.ine_id,
-                          :select_municipio => city.ine_id,
-                          :select_provincia => city.ine_id.first(2),
-                          :subtipoInfra => "D")
-      session.post("http://www.ine.es/censo/es/seleccion_colectivo.jsp",
-                          "municipios=#{city.ine_id}&subtipoInfra=D&" + 
-                          city.districts.map { |d| "select_distritos=#{d.ine_id}" }.join("&") +
-                          "&fType=5",
-                          "Content-Type" => "application/x-www-form-urlencoded")
-      page = session.post("http://www.ine.es/censo/es/consulta.jsp",
-                          :_IDIOMA => "ES",
-                          :c => "GRUPO_Q_EDAD",
-                          :k => "MDDB.COLECTIVO_P1M",
-                          :m => "SPERSONAS",
-                          :r => "DISTRITO",
-                          :s => 1)
+      puts "Getting data for #{city.name}"
+      population_page = session.population_page(city)
       city.districts.each do |district|
-        ages = page.root.xpath("//table[@border='1']//tr[position()=1]/td[position()>2]").map {|cell| cell.text.to_i + 2.5}
-        cells = page.root.xpath("//table[@border='1']//tr[td[contains(.,'#{district.ine_id}')]]/td[@class='dat']").map {|cell| cell.text.gsub(/[^\d]/, '').to_i}
+        ages = population_page.xpath("//table[@border='1']//tr[position()=1]/td[position()>2]").map {|cell| cell.text.to_i + 2.5}
+        cells = population_page.xpath("//table[@border='1']//tr[td[contains(.,'#{district.ine_id}')]]/td[@class='dat']").map {|cell| cell.text.gsub(/[^\d]/, '').to_i}
         population, values = cells.first, cells[1..-1]
+        puts "Population of #{district.name}, #{city.name}: #{population}"
         total = 0
         ages.each_with_index do |age, i|
           total += age * values[i]
         end
         age = total / population
+        
+        places_type_page = session.places_type_page(city)
+        culture_and_sport = places_type_page.at_xpath("//table[@border='1']//tr[td[contains(.,'#{district.ine_id}')]]/td[@class='dat' and position() = 6]").text.gsub(/[^\d]/, '').to_f * 1_000_000 / population
+        puts "Culture & Sport in #{district.name}, #{city.name}: #{culture_and_sport}"
+        
         district.update_attributes!(:population => population,
-                                    :age => age * 100)
+                                    :age => age * 100,
+                                    :culture_and_sport => culture_and_sport)
       end
+      puts "Normalizing data for #{city.name}"
+      city.districts.normalize!
     end
-    District.normalize!
+    
   end
   
   def self.cities

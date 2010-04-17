@@ -1,3 +1,6 @@
 Madrid:
   province_id: 28
   ine_id: 28079
+Barcelona:
+  province_id: 08
+  ine_id: 08019
