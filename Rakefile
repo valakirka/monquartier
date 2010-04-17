@@ -8,3 +8,9 @@ require 'rake/testtask'
 require 'rake/rdoctask'
 
 require 'tasks/rails'
+
+task :import => :environment do
+  Importer.cities.each do |name, data|
+    Importer.import_city(name)
+  end
+end
