@@ -14,6 +14,20 @@ feature "Import geography" do
     # city.districts.map(&:ine_id).should == (1..21).map {|i| "28079%02d" % i}
   end
   
+  scenario "Get population for each district" do
+    pending "Commented to avoid HTTP queries during tests"
+    # city = create_city(:name => "Madrid", :ine_id => "28079")
+    # district1 = create_district(:city => city, :ine_id => "2807901")
+    # district2 = create_district(:city => city, :ine_id => "2807902")
+    # district3 = create_district(:city => city, :ine_id => "2807903")
+    # 
+    # Importer.get_populations
+    # 
+    # district1.reload.population.should == 124_980
+    # district2.reload.population.should == 133_022
+    # district3.reload.population.should == 121_526
+  end
+  
   scenario "Add names to districts"
   
   scenario "Add geolocalization to districts"

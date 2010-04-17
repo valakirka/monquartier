@@ -10,6 +10,33 @@ class Importer
     end
   end
   
+  def self.get_populations
+    session = IneSession.new
+    City.all(:include => :districts).each do |city|
+      session.post("http://www.ine.es/censo/es/seleccion_infra_elec_sec_dist.jsp",
+                          :fType => 5,
+                          :municipios => city.ine_id,
+                          :select_municipio => city.ine_id,
+                          :select_provincia => city.ine_id.first(2),
+                          :subtipoInfra => "D")
+      session.post("http://www.ine.es/censo/es/seleccion_colectivo.jsp",
+                          "municipios=#{city.ine_id}&subtipoInfra=D&" + 
+                          city.districts.map { |d| "select_distritos=#{d.ine_id}" }.join("&") +
+                          "&fType=5",
+                          "Content-Type" => "application/x-www-form-urlencoded")
+      page = session.post("http://www.ine.es/censo/es/consulta.jsp",
+                          :_IDIOMA => "ES",
+                          :c => "GRUPO_Q_EDAD",
+                          :k => "MDDB.COLECTIVO_P1M",
+                          :m => "SPERSONAS",
+                          :r => "DISTRITO",
+                          :s => 1)
+      city.districts.each do |district|
+        district.update_attributes!(:population => page.root.at_xpath("//table[@border='1']//*[preceding-sibling::td[contains(.,'#{district.ine_id}')]]").text.gsub(/[^\d]/, '').to_i)
+      end
+    end
+  end
+  
   def self.cities
     @cities ||= YAML.load_file(Rails.root.to_s + "/config/cities.yml")
   end

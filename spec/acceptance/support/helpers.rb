@@ -1,5 +1,12 @@
 module HelperMethods
-  # Put here any helper method you need to be available in all your acceptance tests
+  
+  def create_city(attributes = {})
+    City.create!(attributes)
+  end
+  
+  def create_district(attributes = {})
+    District.create!(attributes)
+  end
   
 end
 
