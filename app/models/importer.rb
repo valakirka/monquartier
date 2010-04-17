@@ -32,8 +32,18 @@ class Importer
                           :r => "DISTRITO",
                           :s => 1)
       city.districts.each do |district|
-        district.update_attributes!(:population => page.root.at_xpath("//table[@border='1']//*[preceding-sibling::td[contains(.,'#{district.ine_id}')]]").text.gsub(/[^\d]/, '').to_i)
+        ages = page.root.xpath("//table[@border='1']//tr[position()=1]/td[position()>2]").map {|cell| cell.text.to_i + 2.5}
+        cells = page.root.xpath("//table[@border='1']//tr[td[contains(.,'#{district.ine_id}')]]/td[@class='dat']").map {|cell| cell.text.gsub(/[^\d]/, '').to_i}
+        population, values = cells.first, cells[1..-1]
+        total = 0
+        ages.each_with_index do |age, i|
+          total += age * values[i]
+        end
+        age = total / population
+        district.update_attributes!(:population => population,
+                                    :age => age * 100)
       end
+      District.normalize!
     end
   end
   
