@@ -4,11 +4,15 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
 <head>
-	<title>MonQuartier</title>
+	<title>Monquartier</title>
 	<%= javascript_include_tag :defaults, "jquery.autocomplete.min" %>
-	<%= stylesheet_link_tag "jquery.autocomplete" %>
+	<%= stylesheet_link_tag "jquery.autocomplete", "application" %>
 </head>
 <body>
-<%= yield %>
+  <div id="header">HEADER</div>
+  <div id="content">
+    <%= yield %>
+  </div>
+  <div id="footer">FOOTER</div>
 </body>
 </html>

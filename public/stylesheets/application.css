@@ -1,0 +1,63 @@
+#body {
+	
+}
+
+#header {
+	height:	120px;
+	width: 960px;
+	background-color: white;
+	border: 1px solid #999;
+}
+
+#content {
+	width: 960px;
+}
+#footer {
+	height:	120px;
+	width: 960px;
+	background-color: white;
+	border: 1px solid #999;
+}
+
+#district_info #district_data {
+	height: 400px;
+	width: 480px;
+	float: left;
+}
+
+#district_info #district_map {
+	height: 400px;
+	width: 480px;
+	margin-left: 480px;
+}
+
+#suggestions_list {
+	padding-top: 100px;
+	width: 960px;
+}
+
+.suggestion {
+	width: 480px;
+	float: left;
+	padding: 20px 0;
+}
+
+.suggestion img {
+	float: left;
+}
+
+.suggestion_info {
+	margin-left: 130px;
+} 
+#search_box {
+	width: 960px;
+	clear: both;
+	text-align: center;
+	padding: 100px;
+	border-top: 1px solid #999;
+}
+
+#district_map {
+	height: 400px;
+	width: 370px;
+}
