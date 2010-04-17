@@ -6,8 +6,9 @@ class Importer
     url = "http://www.ine.es/prodyser/callejero/caj110/call_p#{cities[name]['province_id']}_110.zip"
     tmp_file = Rails.root.to_s + "/tmp/#{rand(10**9)}.zip"
     `curl #{url} > #{tmp_file} && unzip -p #{tmp_file} "*TRAMOS*" | grep ^#{city.ine_id} | iconv -f ISO-8859-1 -t UTF-8 |cut -c 1-7 | uniq`.split("\n").each do |district_id|
-      puts "Creating district: #{district_id}, #{name}"
-      city.districts.create!(:ine_id => district_id)
+      district_name = districts[district_id]
+      puts "Creating district: #{district_name}, #{name}"
+      city.districts.create!(:ine_id => district_id, :name => district_name)
     end
   end
   
@@ -42,8 +43,13 @@ class Importer
     end
     
   end
-  
+
   def self.cities
     @cities ||= YAML.load_file(Rails.root.to_s + "/config/cities.yml")
   end
+  
+  def self.districts
+    @districts ||= YAML.load_file(Rails.root.to_s + "/config/districts.yml")
+  end
+
 end

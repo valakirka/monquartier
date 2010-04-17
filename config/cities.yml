@@ -4,3 +4,9 @@ Madrid:
 Barcelona:
   province_id: 08
   ine_id: 08019
+Valencia:
+  province_id: 46
+  ine_id: 46250
+Sevilla:
+  province_id: 41
+  ine_id: 091

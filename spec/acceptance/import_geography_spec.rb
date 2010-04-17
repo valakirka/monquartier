@@ -11,6 +11,7 @@ feature "Import geography" do
     city.name.should == "Madrid"
     city.nicename.should == "madrid"
     city.districts.count.should == 21
+    city.districts.first.name.should == "Centro"
     city.districts.map(&:ine_id).should == (1..21).map {|i| "28079%02d" % i}
   end
   

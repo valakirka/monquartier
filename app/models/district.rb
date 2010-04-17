@@ -28,10 +28,6 @@ class District < ActiveRecord::Base
     end
   end
   
-  def name
-    ine_id
-  end
-  
   include ActionController::UrlWriter
   
   def to_json(options = {})
