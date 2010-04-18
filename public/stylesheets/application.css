@@ -53,7 +53,6 @@ h3 strong {
 .band img {
   margin: 0;
   padding: 0;
-  float: right;
 }
 #datos {
   background-color: #A8B7C6;
@@ -189,5 +188,10 @@ div.item.city {
   -moz-transform: rotate(2deg);
   -webkit-box-shadow: #454b52 0 3px 6px;
   -moz-box-shadow: #454b52 0 3px 6px;
+  border: 10px solid #fff;
+}
+.band .container iframe {
+  -webkit-box-shadow: #333 0 3px 6px;
+  -moz-box-shadow: #333 0 3px 6px;
   border: 10px solid #fff;
 }
