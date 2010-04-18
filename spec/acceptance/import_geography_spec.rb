@@ -1,7 +1,9 @@
 require File.dirname(__FILE__) + '/acceptance_helper'
 
 feature "Import geography" do
-  
+  background do
+    stub_request(:get, %r{http://maps\.google\.com/maps/geo\?}).to_return(:body => "200,6,41.415311,-3.71302")
+  end
   scenario "Create basic data" do
     pending "Commented to avoid HTTP queries during tests"
     Importer.import_city("Madrid")
@@ -13,6 +15,7 @@ feature "Import geography" do
     city.districts.count.should == 21
     city.districts.first.name.should == "Centro"
     city.districts.map(&:ine_id).should == (1..21).map {|i| "28079%02d" % i}
+    city.districts.first.coordinates.should == "41.415311,-3.71302"
   end
   
   scenario "Get population & normalized data for each district" do
