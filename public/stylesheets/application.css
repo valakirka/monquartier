@@ -209,3 +209,9 @@ div.item.city {
 .err h2 {
   color: #fff;
 }
+.left { float: left; }
+.right { float: right; }
+div.legend {
+  overflow: hidden;
+  width: 500px;
+}
