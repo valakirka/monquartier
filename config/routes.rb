@@ -5,4 +5,5 @@ ActionController::Routing::Routes.draw do |map|
   end
   map.resources :districts
   map.connect "que-es-monquartier", :controller => "districts", :action => "about"
+  map.connect "datos", :controller => "districts", :action => "data"
 end
