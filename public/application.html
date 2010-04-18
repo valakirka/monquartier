@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+  "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+  <head>
+    <title>Monquartier</title>
+    <link rel="stylesheet" href="stylesheets/blueprint/screen.css" type="text/css" media="screen" title="no title" charset="utf-8" />
+    <link rel="stylesheet" href="stylesheets/application.css" type="text/css" media="screen" title="no title" charset="utf-8" />
+    <script type="text/javascript" src="http://use.typekit.com/mfy4xgk.js"></script>
+    <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+  </head>
+  <body class="">
+    <div id="header" class="container">
+      <h1>Monquartier</h1>
+      <span>información sobre los barrios de españa</span>
+    </div>
+    <div id="content">
+      <%= yield %>
+      <div id="search" class="band">
+        <form>
+          <label for="q">Busca un barrio de Wadus para ver si mola:</label>
+          <input type="text" name="q" id="search_field" />
+          <input type="submit" id="s" value="Buscar" />
+        </form>
+      </div>
+    </div>
+
+    <h3>Ficha de barrio</h3>
+    <!-- ficha de barrio -->
+    <div id="barrio" class="band">
+      <div class="container">
+        <img src="http://farm5.static.flickr.com/4042/4462633677_4ea801e066.jpg" class="span-10" />
+        <h3>Información sobre <strong>Madrid » Chamberí</strong></h3>
+        <p>Tu barrio mola, pero tu grupo es una <strong>mierda</strong>.</p>
+        <p><a href="#">Chamberí</a> es un distrito perteneciente a la ciudad de <strong>Madrid</strong> (España) y organizado administrativamente en seis barrios (Gaztambide, Arapiles, Trafalgar, Almagro, Ríos Rosas y Vallehermoso). Cuenta con una población cercana a los 150.000 habitantes.</p>
+      </div>
+    </div>
+    <hr />
+    <div class="container">
+      <h3>Datos del barrio</h3>
+      <p>Edad de los vecinos</p>
+      <p>Cultural y deportivo</p>
+      <p>Movimiento</p>
+      <p>Antiguedad</p>
+      <p>Riqueza</p>
+      <hr />
+      <h4>Es como...</h4>
+      <p>Brijändland, Möldåvia</p>
+    </div>
+    
+    <!-- ficha de barrio -->
+    
+    <div id="footer" class="container">
+      <p>sobre nosotros | de qué va esto | <strong>blog</strong> | <a href="http://www.abredatos.es">abredatos?</a></p>
+      <p>©2010 <strong>Terrible Troupe</strong> para el Desafío Abredatos 2010</p>
+    </div>
+    </div>
+  </body>
+</html>
