@@ -1,6 +1,6 @@
 <div id="barrio" class="band">
   <div class="container">
-    <img src="http://maps.google.com/staticmap?center=40.714728,-73.998672&size=370x400&markers=40.714728,-73.998672,reda&key=40.714728,-73.998672" />
+    <img src="http://maps.google.com/staticmap?center=<%= @district.coordinates %>&size=500x400&zoom=14&markers=<%= @district.coordinates %>,red&key=<%= get_gmaps_api_key %>" />
     <h3>Información sobre <br /><strong><%= @district.city.name %> » <%= @district.name %></strong></h3>
     <p>Más información de <strong><%= @district.name %></strong>, en la Wikipedia.</p>
   </div>
@@ -27,7 +27,7 @@
   <h4>Es como...</h4>
   <% @district.suggestions.each do |district| %>
   <div class="item span-12<%= ' city' if district.city == @district.city %><%= cycle("", "last") -%>">
-    <img src="http://maps.google.com/staticmap?center=40.714728,-73.998672&size=190x126&markers=40.714728,-73.998672,reda&key=40.714728,-73.998672" class="span-5" />
+    <img src="http://maps.google.com/staticmap?center=<%= district.coordinates %>&size=190x126&zoom=14&markers=<%= district.coordinates %>,red&key=<%= get_gmaps_api_key %>" class="span-5" />
     <h5><%= district.name %>, <%= district.city.name %></h5>
     <small>“<%= district.name %> es el <%= @district.name %> de <%= district.city.name %>”</small>
   </div><!-- /item -->
