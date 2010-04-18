@@ -2,16 +2,18 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
 
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
-<head>
-	<title>Monquartier</title>
-	<%= javascript_include_tag :defaults, "jquery.autocomplete.min" %>
-	<%= stylesheet_link_tag "jquery.autocomplete", "application" %>
-</head>
-<body>
-  <div id="header">HEADER</div>
-  <div id="content">
-    <%= yield %>
-  </div>
-  <div id="footer">FOOTER</div>
-</body>
+  <head>
+    <title>Monquartier</title>
+    <%= javascript_include_tag :defaults, "jquery.autocomplete.min" %>
+    <%= stylesheet_link_tag "jquery.autocomplete", "blueprint/screen", "application" %>
+    <script type="text/javascript" src="http://use.typekit.com/mfy4xgk.js"></script>
+    <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+  </head>
+  <body>
+    <div id="header">HEADER</div>
+    <div id="content">
+      <%= yield %>
+    </div>
+    <div id="footer">FOOTER</div>
+  </body>
 </html>
