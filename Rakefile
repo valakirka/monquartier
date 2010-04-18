@@ -10,6 +10,8 @@ require 'rake/rdoctask'
 require 'tasks/rails'
 
 task :import => :environment do
+  City.delete_all
+  District.delete_all
   Importer.cities.each do |name, data|
     Importer.import_city(name)
   end
