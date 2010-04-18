@@ -196,3 +196,10 @@ div.item.city {
   -moz-box-shadow: #333 0 3px 6px;
   border: 10px solid #fff;
 }
+
+.err {
+  text-align: center;
+}
+.err h2 {
+  color: #fff;
+}
