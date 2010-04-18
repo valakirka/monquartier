@@ -1,0 +1,7 @@
+  <div id="search" class="band">
+    <form>
+      <label for="q">Busca un barrio de <%= cities_links %> para ver si mola:</label>
+      <%= text_field_tag :q, params[:q], :id => "search_field", :autocomplete => "off" %>
+      <input type="submit" id="s" value="Buscar" />
+    </form>
+  </div>
