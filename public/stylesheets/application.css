@@ -63,6 +63,7 @@ h3 strong {
   padding: 1px;
   background-color: #fff;
   -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
 }
 #datos .bar {
   display: block;
@@ -70,6 +71,7 @@ h3 strong {
   height: 20px;
   margin: 1px;
   -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
 }
 #datos h3 {
   margin: 0;
