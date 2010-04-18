@@ -26,7 +26,7 @@
 <div id="como" class="container">
   <h4>Es como...</h4>
   <% @district.suggestions.each do |district| %>
-  <div class="item span-12<%= ' city' if district.city == @district.city %>">
+  <div class="item span-12<%= ' city' if district.city == @district.city %><%= cycle("", "last") -%>">
     <img src="http://maps.google.com/staticmap?center=40.714728,-73.998672&size=190x126&markers=40.714728,-73.998672,reda&key=40.714728,-73.998672" class="span-5" />
     <h5><%= district.name %>, <%= district.city.name %></h5>
     <small>“<%= district.name %> es el <%= @district.name %> de <%= district.city.name %>”</small>
