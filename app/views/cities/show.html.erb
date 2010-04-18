@@ -1,0 +1,6 @@
+<h3><%= @city.name %></h3>
+<ul>
+  <% @city.districts.each do |district| %>
+  <li><%= link_to district.name, city_district_path(district.city, district) %></li>
+  <% end %>
+</ul>

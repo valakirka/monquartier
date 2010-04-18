@@ -7,6 +7,7 @@ class DistrictsController < ApplicationController
   end
   
   def show
-    @district = District.find(params[:id])
+    @city = City.find_by_nicename!(params[:city_id])
+    @district = @city.districts.find_by_nicename!(params[:id])
   end
 end

@@ -2,14 +2,14 @@ class Importer
   def self.import_city(name)
     raise "City not found" unless cities.has_key?(name)
     puts "Creating city: #{name}"
-    city = City.create!(:name => name, :nicename => name.downcase, :ine_id => cities[name]["ine_id"])
+    city = City.create!(:name => name, :nicename => name.nicename, :ine_id => cities[name]["ine_id"])
     url = "http://www.ine.es/prodyser/callejero/caj110/call_p#{cities[name]['province_id']}_110.zip"
     tmp_file = Rails.root.to_s + "/tmp/#{rand(10**9)}.zip"
     `curl #{url} > #{tmp_file}`
     `unzip -p #{tmp_file} "*TRAMOS*" | grep ^#{city.ine_id} | iconv -f ISO-8859-1 -t UTF-8 |cut -c 1-7 | uniq`.split("\n").each do |district_id|
       district_name = districts[district_id]
       puts "Creating district: #{district_name}, #{name}"
-      city.districts.create!(:ine_id => district_id, :name => district_name)
+      city.districts.create!(:ine_id => district_id, :name => district_name, :nicename => district_name.nicename)
       
       way_location = `unzip -p #{tmp_file} "*TRAMOS*" | grep ^#{district_id} | iconv -f ISO-8859-1 -t UTF-8 | cut -c 166-190 -c 136-160 | uniq`.split("\n").first
       location = way_location[0..24].strip
