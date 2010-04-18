@@ -36,4 +36,9 @@ class District < ActiveRecord::Base
       h['url'] = district_path(self)
     end.to_json(options)
   end
+  
+  def suggestions(limit = 6)
+    dif = NORMALIZED.map { |a| "abs(d1.#{a}_points - d2.#{a}_points)" }.join("+")
+    self.class.find_by_sql("select d1.*, #{dif} dif from districts d1 join districts d2 on d2.id=#{id} where d1.id != #{id} order by dif limit #{limit}")
+  end
 end

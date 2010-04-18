@@ -11,54 +11,15 @@
 </div>
 <div id="suggestions_list">
   <h3>Suggestions</h3>
+  <% @district.suggestions.each do |district| %>
   <div class="suggestion">
     <img class="suggestion_image" src="http://maps.google.com/staticmap?center=40.714728,-73.998672&size=120x120&markers=40.714728,-73.998672,reda&key=40.714728,-73.998672"/>
     <div class="suggestion_info">
-      <h4>District Name</h4>
-      <p>Wadus info about this district</p>
+      <h4><%= district.name %>, <%= district.city.name %></h4>
+      <p><em>“<%= district.name %> es el <%= @district.name %> de <%= district.city.name %>”</em></p>
     </div>
   </div>
-  
-  <div class="suggestion">
-    <img class="suggestion_image" src="http://maps.google.com/staticmap?center=40.714728,-73.998672&size=120x120&markers=40.714728,-73.998672,reda&key=40.714728,-73.998672"/>
-    <div class="suggestion_info">
-      <h4>District Name</h4>
-      <p>Wadus info about this district</p>
-    </div>
-  </div>
-  
-  <div class="suggestion">
-    <img class="suggestion_image" src="http://maps.google.com/staticmap?center=40.714728,-73.998672&size=120x120&markers=40.714728,-73.998672,reda&key=40.714728,-73.998672"/>
-    <div class="suggestion_info">
-      <h4>District Name</h4>
-      <p>Wadus info about this district</p>
-    </div>
-  </div>
-  
-  <div class="suggestion">
-    <img class="suggestion_image" src="http://maps.google.com/staticmap?center=40.714728,-73.998672&size=120x120&markers=40.714728,-73.998672,reda&key=40.714728,-73.998672"/>
-    <div class="suggestion_info">
-      <h4>District Name</h4>
-      <p>Wadus info about this district</p>
-    </div>
-  </div>
-  
-  <div class="suggestion">
-    <img class="suggestion_image" src="http://maps.google.com/staticmap?center=40.714728,-73.998672&size=120x120&markers=40.714728,-73.998672,reda&key=40.714728,-73.998672"/>
-    <div class="suggestion_info">
-      <h4>District Name</h4>
-      <p>Wadus info about this district</p>
-    </div>
-  </div>
-  
-  <div class="suggestion">
-    <img class="suggestion_image" src="http://maps.google.com/staticmap?center=40.714728,-73.998672&size=120x120&markers=40.714728,-73.998672,reda&key=40.714728,-73.998672"/>
-    <div class="suggestion_info">
-      <h4>District Name</h4>
-      <p>Wadus info about this district</p>
-    </div>
-  </div>
-</div>
+  <% end %>
 
 <div id="search_box">
   <form>
