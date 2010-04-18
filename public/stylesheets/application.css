@@ -177,6 +177,9 @@ div.item h5 {
 div.item.city {
   background: url(/images/bg_item_city.png) top right no-repeat;
 }
+div.item a {
+  color: #454b52;
+}
 
 #barrio {
   margin: 0;
