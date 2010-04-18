@@ -23,6 +23,7 @@ class Importer
     end
     
     City.find_by_name("Madrid").districts.find_by_name("Salamanca").update_attributes!(:coordinates => "40.427284,-3.692436")
+    City.find_by_name("Madrid").districts.find_by_name("Ciudad Lineal").update_attributes!(:coordinates => "40.49161,-3.659134")
   end
   
   def self.get_data
