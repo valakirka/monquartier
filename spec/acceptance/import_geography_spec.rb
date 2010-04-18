@@ -51,6 +51,13 @@ feature "Import geography" do
     district1.culture_and_sport_points.should == 500
     district2.culture_and_sport_points.should == 0
     district3.culture_and_sport_points.should == 41
+    
+    district1.wealth.should == 2414
+    district2.wealth.should == 2914
+    district3.wealth.should == 3849
+    
+    district1.wealth_points.should == 0
+    district3.wealth_points.should == 500
   end
   
   scenario "Add names to districts"

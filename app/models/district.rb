@@ -6,7 +6,7 @@ class District < ActiveRecord::Base
       city.districts.each do |district|
         points = returning({}) do |h|
           NORMALIZED.each do |attribute|
-            h["#{attribute}_points"] = if city.districts.one?
+            h["#{attribute}_points"] = if city.districts.size <= 1
               250
             else
               ((district[attribute] - ranges[attribute].begin) * (5.0 / (ranges[attribute].end - ranges[attribute].begin)) * 100).round
@@ -18,7 +18,7 @@ class District < ActiveRecord::Base
     end
   end
   
-  NORMALIZED = [:age, :culture_and_sport]
+  NORMALIZED = [:age, :culture_and_sport, :wealth]
   
   def self.ranges
     returning({}) do |h|
@@ -39,6 +39,6 @@ class District < ActiveRecord::Base
   
   def suggestions(limit = 6)
     dif = NORMALIZED.map { |a| "abs(d1.#{a}_points - d2.#{a}_points)" }.join("+")
-    self.class.find_by_sql("select d1.*, #{dif} dif from districts d1 join districts d2 on d2.id=#{id} where d1.id != #{id} order by dif limit #{limit}")
+    self.class.find_by_sql("select d1.*, #{dif} as dif from districts d1 join districts d2 on d2.id=#{id} where d1.id != #{id} order by dif limit #{limit}")
   end
 end
