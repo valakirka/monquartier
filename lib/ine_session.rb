@@ -22,6 +22,16 @@ class IneSession < Mechanize
                :r => "DISTRITO",
                :s => 1)
   end
+
+  def wealth_page(city)
+    page(city, :_IDIOMA => "ES",
+               # :c => "DISPONIBILIDAD_2_VIV",
+               :c => "REL_2_VIV_LR",
+               :k => "MDDB.COLECTIVO_N1M",
+               :m => "SNUCLEOS_ROWPCTSUM",
+               :r => "DISTRITO",
+               :s => 1)
+  end
   
   def page(city, options = {})
     post("http://www.ine.es/censo/es/seleccion_infra_elec_sec_dist.jsp",

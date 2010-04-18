@@ -18,7 +18,7 @@ class District < ActiveRecord::Base
     end
   end
   
-  NORMALIZED = [:age, :culture_and_sport]
+  NORMALIZED = [:age, :culture_and_sport, :wealth]
   
   def self.ranges
     returning({}) do |h|
