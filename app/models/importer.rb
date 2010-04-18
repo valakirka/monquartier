@@ -11,7 +11,7 @@ class Importer
       puts "Creating district: #{district_name}, #{name}"
       city.districts.create!(:ine_id => district_id, :name => district_name, :nicename => district_name.nicename)
       
-      way_location = `unzip -p #{tmp_file} "*TRAMOS*" | grep ^#{district_id} | iconv -f ISO-8859-1 -t UTF-8 | cut -c 166-190 -c 136-160 | uniq`.split("\n").first
+      way_location = `unzip -p #{tmp_file} "*TRAMOS*" | grep ^#{district_id} | iconv -f ISO-8859-1 -t UTF-8 | cut -c 166-190,136-160 | uniq`.split("\n").first
       location = way_location[0..24].strip
       way = way_location[25..50].strip
       way_type = `unzip -p #{tmp_file} "*VIAS*" | grep '#{way}' | iconv -f ISO-8859-1 -t UTF-8 | cut -c 28-32 | uniq`.split("\n").first.strip
