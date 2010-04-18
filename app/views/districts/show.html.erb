@@ -1,29 +1,38 @@
-<div id="district_info">
-  <div id="district_data">
-    <h2><%= @district.name %>, de <%= @district.city.name %></h2>
-    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-  </div>
-  <div id="district_location">
-    <div id="district_map">
-      <img src="http://maps.google.com/staticmap?center=40.714728,-73.998672&size=370x400&markers=40.714728,-73.998672,reda&key=40.714728,-73.998672"/>
-    </div>
+<div id="barrio" class="band">
+  <div class="container">
+    <img src="http://maps.google.com/staticmap?center=40.714728,-73.998672&size=370x400&markers=40.714728,-73.998672,reda&key=40.714728,-73.998672" />
+    <h3>Información sobre <br /><strong><%= @district.city.name %> » <%= @district.name %></strong></h3>
+    <p>Tu barrio mola, pero tu grupo es una <strong>mierda</strong>.</p>
+    <p><a href="#">Chamberí</a> es un distrito perteneciente a la ciudad de <strong>Madrid</strong> (España) y organizado administrativamente en seis barrios (Gaztambide, Arapiles, Trafalgar, Almagro, Ríos Rosas y Vallehermoso). Cuenta con una población cercana a los 150.000 habitantes.</p>
   </div>
 </div>
-<div id="suggestions_list">
-  <h3>Suggestions</h3>
+<div id="datos" class>
+  <div class="container">
+    <h3>Datos del barrio</h3>
+    <p>Edad de los vecinos: 0 / <strong>3</strong> / 5</p>
+    <p>Cultural y deportivo: 0 / 3 / 5</p>
+    <p>Movimiento: 0 / 3 / 5</p>
+    <p>Antiguedad: 0 / 3 / 5</p>
+    <p>Riqueza: 0 / 3 / 5</p>
+  </div>
+</div>
+<hr />
+<div id="como" class="container">
+  <h4>Es como...</h4>
   <% @district.suggestions.each do |district| %>
-  <div class="suggestion">
-    <img class="suggestion_image" src="http://maps.google.com/staticmap?center=40.714728,-73.998672&size=120x120&markers=40.714728,-73.998672,reda&key=40.714728,-73.998672"/>
-    <div class="suggestion_info">
-      <h4><%= district.name %>, <%= district.city.name %></h4>
-      <p><em>“<%= district.name %> es el <%= @district.name %> de <%= district.city.name %>”</em></p>
-    </div>
-  </div>
+  <div class="item span-12 city">
+    <img src="http://maps.google.com/staticmap?center=40.714728,-73.998672&size=120x120&markers=40.714728,-73.998672,reda&key=40.714728,-73.998672" class="span-5" />
+    <h5><%= district.name %>, <%= district.city.name %></h5>
+    <small>“<%= district.name %> es el <%= @district.name %> de <%= district.city.name %>”</small>
+  </div><!-- /item -->
   <% end %>
-
-<div id="search_box">
-  <form>
-  <label for="q">Busca un barrio de Wadus para ver si mola:</label>
-  <%= text_field_tag :q, nil, :id => "search_field" %>
-  </form>
+  <div id="search_box">
+    <form>
+    <label for="q">Busca un barrio de Wadus para ver si mola:</label>
+    <%= text_field_tag :q, nil, :id => "search_field" %>
+    </form>
+  </div>
 </div>
+
+
+<!-- ficha de barrio -->
