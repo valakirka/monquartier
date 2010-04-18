@@ -57,16 +57,32 @@ h3 strong {
   padding-top: 2em;
   margin-top: -11em;
 }
-#datos dt {
-  font-weight: 300;
-  width: 200px;
-  text-align: right;
-  float: left;
+#datos .barbg {
+  width: 502px;
+  height: 22px;
+  padding: 1px;
+  background-color: #fff;
+  -webkit-border-radius: 4px;
 }
-#datos dd {
-  font-weight: 900;
-  display: inline;
+#datos .bar {
+  display: block;
+  background: url(/images/bg_bar.png) top left repeat-x;
+  height: 20px;
+  margin: 1px;
+  -webkit-border-radius: 3px;
 }
+#datos h3 {
+  margin: 0;
+  padding: 0;
+}
+#datos h5 {
+  margin: 1em 0 0 0;
+  padding: 0;
+}
+#datos p {
+  margin-top: 1em;
+}
+
 #search label {
   display: block;
 }
@@ -159,6 +175,7 @@ div.item.city {
 #barrio p {
   width: 500px;
 }
+
 #barrio img {
   float: right;
   margin: -3em 0 -5em 0;
@@ -168,8 +185,4 @@ div.item.city {
   -webkit-box-shadow: #454b52 0 3px 6px;
   -moz-box-shadow: #454b52 0 3px 6px;
   border: 10px solid #fff;
-}
-
-#barrio .datos {
-  zbackground-color: #A8B7C6;
 }

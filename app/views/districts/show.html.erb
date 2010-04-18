@@ -1,6 +1,6 @@
 <div id="barrio" class="band">
   <div class="container">
-    <img src="http://maps.google.com/staticmap?center=<%= @district.coordinates %>&size=500x400&zoom=14&markers=<%= @district.coordinates %>,red&key=<%= get_gmaps_api_key %>" />
+    <img src="http://maps.google.com/staticmap?center=<%= @district.coordinates %>&size=400x400&zoom=14&markers=<%= @district.coordinates %>,red&key=<%= get_gmaps_api_key %>" />
     <h3>Información sobre <br /><strong><%= @district.city.name %> » <%= @district.name %></strong></h3>
     <p>Más información de <strong><%= @district.name %></strong>, en la Wikipedia.</p>
   </div>
@@ -8,18 +8,22 @@
 <div id="datos">
   <div class="container">
     <h3>Datos del barrio</h3>
-    <dl>
-      <dt>Edad de los vecinos</dt>
-      <dd><strong><%= @district.age_points %></strong></dd>
-    </dl>
-    <dl>
-      <dt>Cultural y deportivo</dt>
-      <dd><strong><%= @district.culture_and_sport_points %></strong></dd>
-    </dl>
-    <dl>
-      <dt>Riqueza</dt>
-      <dd><strong><%= @district.wealth_points %></strong></dd>
-    </dl>
+
+    <h5>Edad de los vecinos</h5>
+    <div class="barbg">
+      <div class="bar" style="width: <%= @district.age_points %>px"></div>
+    </div>
+    <h5>Cultural y deportivo</h5>
+    <div class="barbg">
+      <div class="bar" style="width: <%= @district.culture_and_sport_points %>px"></div>
+    </div>
+    <h5>Riqueza</h5>
+    <div class="barbg">
+      <div class="bar" style="width: <%= @district.wealth_points %>px"></div>
+    </div>
+
+    <p><a href="#">¿de dónde salen estos datos?</a></p>
+
   </div>
 </div>
 <hr />
