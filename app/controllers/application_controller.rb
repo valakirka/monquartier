@@ -7,4 +7,10 @@ class ApplicationController < ActionController::Base
 
   # Scrub sensitive parameters from your log
   # filter_parameter_logging :password
+  
+  before_filter :set_cache_header
+  
+  def set_cache_header
+    response.headers['Cache-Control'] = 'public, max-age=600'
+  end
 end
