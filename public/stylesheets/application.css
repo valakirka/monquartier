@@ -17,15 +17,21 @@ strong {
 
 h1 {
   font-size: 2em;
-  background: url(/images/logo.png) center top no-repeat;
   text-indent: -900em;
   overflow: hidden;
   height: 44px;
 }
-#header span {
-  text-shadow: #c9d2cb 0 1px 1px;
-  font-size: 0.7em;
-  font-weight: 100;
+#header {
+  text-align: center;
+  margin-top: 2em;
+}
+#header a {
+  display: block;
+  background: url(/images/logo.png) center top no-repeat;
+  width: 150px;
+  margin: 0 auto;
+  height: 50px;
+  text-indent: -1900px;
 }
 h3,h4,h5 {
   font-weight: 500;
@@ -35,9 +41,6 @@ h3 strong {
   color: #fff;
 }
 
-#header {
-  margin-top: 2em;
-}
 .band {
   width: 100%;
   background: #43494f url(/images/bg_search.png) top left repeat-x;
