@@ -206,6 +206,14 @@ div.item a {
   border: 10px solid #fff;
 }
 
+#city_map {
+	width: 950px;
+	height: 400px;
+}
+
+#city_map a {
+	color: black;
+}
 .err {
   text-align: center;
 }

@@ -8,6 +8,8 @@
     <%= stylesheet_link_tag "jquery.autocomplete", "blueprint/screen", "application" %>
     <script type="text/javascript" src="http://use.typekit.com/mfy4xgk.js"></script>
     <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+    <script type="text/javascript" src="http://maps.google.com/maps?file=api&v=2&key=<%= get_gmaps_api_key%>&sensor=false&hl=es" charset="utf-8"></script>
+    <%= yield :head %>
   </head>
   <body>
     <div id="header" class="container">

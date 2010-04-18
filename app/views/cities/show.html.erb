@@ -1,6 +1,24 @@
-<h3><%= @city.name %></h3>
-<ul>
-  <% @city.districts.each do |district| %>
-  <li><%= link_to district.name, city_district_path(district.city, district) %></li>
-  <% end %>
-</ul>
+<% content_for :head do %>
+<% javascript_tag do %>
+<% coordinates = @city.districts.map { |d| [d.name, city_district_path(d.city, d)] + d.coordinates.split(',').map(&:to_f)}  %>
+var coordinates = <%= coordinates.to_json %>
+<% minlat = coordinates.map { |c| c[2] }.min %>
+<% maxlat = coordinates.map { |c| c[2] }.max %>
+<% minlng = coordinates.map { |c| c[3] }.min %>
+<% maxlng = coordinates.map { |c| c[3] }.max %>
+var center = <%= [minlat + (maxlat - minlat) / 2, minlng + (maxlng - minlng) / 2].to_json  %>
+<% end %>
+<% end %>
+
+<div class="band">
+  <div class="container">
+    <h3>Barrios de <strong><%= @city.name %></strong></h3>
+    <div id="city_map"></div>
+    <p>También puedes ver los de <%= cities_links %>.</p>
+  </div>
+</div>
+
+
+
+
+

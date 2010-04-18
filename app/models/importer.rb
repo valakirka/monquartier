@@ -21,6 +21,8 @@ class Importer
 
       District.find_by_ine_id(district_id).update_attributes!(:coordinates => resp.body.split(",").slice(2,2).join(","))
     end
+    
+    City.find_by_name("Madrid").districts.find_by_name("Salamanca").update_attributes!(:coordinates => "40.427284,-3.692436")
   end
   
   def self.get_data
