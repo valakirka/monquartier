@@ -1,63 +1,171 @@
-#body {
-	
+body {
+  margin: 0;
+  padding: 0;
+  background: #A8B7C6 url(../images/bg.png) top center no-repeat;
+  color: #535b62;
+  font-weight: 100;
+  font-family: "museo-sans-1","museo-sans-2","Helvetica","Arial",sans-serif;
+  font-size: 1em;
+}
+strong {
+  font-weight: 500;
+  font-family: "museo-sans-1","museo-sans-2","Helvetica","Arial",sans-serif;
+}
+#header, #footer, #search {
+  text-align: center;
+}
+
+h1 {
+  font-size: 2em;
+  background: url(../images/logo.png) center top no-repeat;
+  text-indent: -900em;
+  overflow: hidden;
+  height: 44px;
+}
+#header span {
+  text-shadow: #c9d2cb 0 1px 1px;
+  font-size: 0.7em;
+  font-weight: 100;
+}
+h3 {
+  font-weight: 100;
+}
+h3 strong {
+  font-weight: 900;
+  color: #fff;
 }
 
 #header {
-	height:	120px;
-	width: 960px;
-	background-color: white;
-	border: 1px solid #999;
+  margin-top: 2em;
 }
-
-#content {
-	width: 960px;
+.band {
+  width: 100%;
+  background: #43494f url(../images/bg_search.png) top left repeat-x;
+  padding: 2em 0 2em 0;
+  color: #A8B7C6;
+}
+.band p {
+  color: #ddd;
+}
+.band img {
+  margin: 0;
+  padding: 0 0 0 2em;
+  float: right;
+}
+#search label {
+  display: block;
+}
+#search input {
+  border: 0;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  font-size: 1.3em;
+  color: #454B52;
+  font-weight: 500;
+  font-family: "museo-sans-1","museo-sans-2","Helvetica","Arial",sans-serif;
+}
+#search input {
+  padding: 4px;
+  hxeight: 36px;
+}
+#search input#s {
+  background: url(../images/btn_bg.png) left center no-repeat;
+  padding-left: 2.3em;
+  padding-right: 1em;
+  font-weight: 900;
+  color: #7D5010;
+  text-shadow: #fec24d 0px 1px 1px;
+  xfont-size: 15px;
+  zborder: 1px solid #fff;
+  zborder: 1px solid #454b52;
+}
+#search input#s:hover {
+  background: url(../images/btn_bg.png) -193px center no-repeat;
 }
 #footer {
-	height:	120px;
-	width: 960px;
-	background-color: white;
-	border: 1px solid #999;
+  margin-top: 3em;
+  font-weight: 100;
+  font-family: "museo-sans-1","museo-sans-2","Helvetica","Arial",sans-serif;
+  font-size: 0.9em;
+  text-align: center;
+}
+
+
+a { color: #fff;}
+#footer a { color: #535b62;}
+a:visited { color: #333;}
+a:hover {
+  color: #333;
+  background-color: #fc0;
+  -moz-border-radius: 3px;
+  -webkit-border-radius: 3px;
+  text-decoration: none;
+  padding: 0 3px;
+  margin: 0 -3px;
+}
+#footer a:hover {
+  color: #fff;
+  background-color: #535b62;
+}
+
+#search label {
+  color: #fff;
+}
+
+.container {
+  text-align: left;
+}
+
+/*
+#content {
+  width: 960px;
+}
+#footer {
+  height: 120px;
+  width: 960px;
+  background-color: white;
+  border: 1px solid #999;
 }
 
 #district_info #district_data {
-	height: 400px;
-	width: 480px;
-	float: left;
+  height: 400px;
+  width: 480px;
+  float: left;
 }
 
 #district_info #district_map {
-	height: 400px;
-	width: 480px;
-	margin-left: 480px;
+  height: 400px;
+  width: 480px;
+  margin-left: 480px;
 }
 
 #suggestions_list {
-	padding-top: 100px;
-	width: 960px;
+  padding-top: 100px;
+  width: 960px;
 }
 
 .suggestion {
-	width: 480px;
-	float: left;
-	padding: 20px 0;
+  width: 480px;
+  float: left;
+  padding: 20px 0;
 }
 
 .suggestion img {
-	float: left;
+  float: left;
 }
 
 .suggestion_info {
-	margin-left: 130px;
+  margin-left: 130px;
 } 
 #search_box {
-	width: 960px;
-	clear: both;
-	text-align: center;
-	padding: 100px;
-	border-top: 1px solid #999;
+  width: 960px;
+  clear: both;
+  text-align: center;
+  padding: 100px;
+  border-top: 1px solid #999;
 }
 
 #district_map {
-	height: 400px;
-	width: 370px;
-}
+  height: 400px;
+  width: 370px;
+}*/
