@@ -124,7 +124,8 @@ h3 strong {
 
 a { color: #fff;}
 #footer a { color: #535b62;}
-a:visited { color: #333;}
+a:visited { color: #999;}
+
 a:hover {
   color: #333;
   background-color: #fc0;
