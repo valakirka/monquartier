@@ -1,6 +1,8 @@
 <div id="barrio" class="band">
   <div class="container">
-    <img src="http://maps.google.com/staticmap?center=<%= @district.coordinates %>&size=400x400&zoom=14&markers=<%= @district.coordinates %>,red&key=<%= get_gmaps_api_key %>" />
+
+    <a class="image_link" target="_new" href="http://maps.google.es/maps?ll=<%= @district.coordinates%>&z=15"><img src="http://maps.google.com/staticmap?center=<%= @district.coordinates %>&size=400x400&zoom=14&markers=<%= @district.coordinates %>,red&key=<%= get_gmaps_api_key %>" /></a>
+
     <h3>Información sobre <br /><strong><%= @district.city.name %> » <%= @district.name %></strong></h3>
     <p>Más información de <strong><%= @district.name %></strong>, en la Wikipedia.</p>
   </div>

@@ -140,6 +140,12 @@ a:hover {
   background-color: #535b62;
 }
 
+a.image_link:hover{
+	background: none;
+	margin:	0;
+	padding: 0;
+}
+
 #search label {
   color: #fff;
 }
