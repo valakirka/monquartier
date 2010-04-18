@@ -11,12 +11,15 @@
     <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
   </head>
   <body class="">
+
     <div id="header" class="container">
-      <h1>Monquartier</h1>
+      <h1><a href="/">Monquartier</a></h1>
       <span>información sobre los barrios de españa</span>
-    </div>
+    </div><!-- /header -->
+
+    <!-- home -->
+    <h3>#Home</h3>
     <div id="content">
-      <%= yield %>
       <div id="search" class="band">
         <form>
           <label for="q">Busca un barrio de Wadus para ver si mola:</label>
@@ -25,9 +28,10 @@
         </form>
       </div>
     </div>
+    <!-- /home -->
 
-    <h3>Ficha de barrio</h3>
     <!-- ficha de barrio -->
+    <h3>#Ficha de barrio</h3>
     <div id="barrio" class="band">
       <div class="container">
         <img src="http://farm5.static.flickr.com/4042/4462633677_4ea801e066.jpg" class="span-10" />
@@ -45,16 +49,39 @@
       <p>Antiguedad</p>
       <p>Riqueza</p>
       <hr />
-      <h4>Es como...</h4>
-      <p>Brijändland, Möldåvia</p>
     </div>
-    
+    <div id="como" class="container">
+      <h4>Es como...</h4>
+      <div class="item span-12 city">
+        <img src="http://farm5.static.flickr.com/4042/4462633677_4ea801e066.jpg" class="span-5" />
+        <h5>Brijändland, Möldåvia</h5>
+        <small>Brijändland es el Bruhaha de Möldåvia</small>
+      </div><!-- /item -->
+      <div class="item span-12 last">
+        <img src="http://farm5.static.flickr.com/4042/4462633677_4ea801e066.jpg" class="span-5" />
+        <h5>Brijändland, Möldåvia</h5>
+        <small>Brijändland es el Bruhaha de Möldåvia</small>
+      </div><!-- /item -->
+      <div class="item span-12">
+        <img src="http://farm5.static.flickr.com/4042/4462633677_4ea801e066.jpg" class="span-5" />
+        <h5>Brijändland, Möldåvia</h5>
+        <small>Brijändland es el Bruhaha de Möldåvia</small>
+      </div><!-- /item -->
+      <div class="item span-12 last">
+        <img src="http://farm5.static.flickr.com/4042/4462633677_4ea801e066.jpg" class="span-5" />
+        <h5>Brijändland, Möldåvia</h5>
+        <small>Brijändland es el Bruhaha de Möldåvia</small>
+      </div>
+    </div>
     <!-- ficha de barrio -->
-    
+
+
     <div id="footer" class="container">
       <p>sobre nosotros | de qué va esto | <strong>blog</strong> | <a href="http://www.abredatos.es">abredatos?</a></p>
       <p>©2010 <strong>Terrible Troupe</strong> para el Desafío Abredatos 2010</p>
     </div>
+
     </div>
+
   </body>
 </html>
