@@ -11,15 +11,15 @@
 
     <h5>Edad de los vecinos</h5>
     <div class="barbg">
-      <div class="bar" style="width: <%= @district.age_points %>px"></div>
+      <div class="bar" style="width: <%= (@district.age_points + 10)*(490/500) %>px"></div>
     </div>
     <h5>Cultural y deportivo</h5>
     <div class="barbg">
-      <div class="bar" style="width: <%= @district.culture_and_sport_points %>px"></div>
+      <div class="bar" style="width: <%= (@district.culture_and_sport_points+10)*(490/500) %>px"></div>
     </div>
     <h5>Riqueza</h5>
     <div class="barbg">
-      <div class="bar" style="width: <%= @district.wealth_points %>px"></div>
+      <div class="bar" style="width: <%= (@district.wealth_points+10)*(490/500) %>px"></div>
     </div>
 
     <p><a href="#">¿de dónde salen estos datos?</a></p>
