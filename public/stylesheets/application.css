@@ -55,7 +55,17 @@ h3 strong {
 #datos {
   background-color: #A8B7C6;
   padding-top: 2em;
-  margin-top: -6em;
+  margin-top: -11em;
+}
+#datos dt {
+  font-weight: 300;
+  width: 200px;
+  text-align: right;
+  float: left;
+}
+#datos dd {
+  font-weight: 900;
+  display: inline;
 }
 #search label {
   display: block;
